@@ -1,0 +1,176 @@
+// Palette
+// --------------------------------------------------
+$primary: #2695ff;
+$primary-light: #41a2ff;
+$secondary: #4b5062;
+$line-color: #353741;
+
+// Light
+$color-light-1: #404555;
+$color-light-2: #323642;
+$color-light-3: #32353f;
+$color-light-4: #32343e;
+$color-light-5: #31343d;
+$color-light-6: #2c2f39;
+
+// Dark
+$color-dark-1: #282b35;
+$color-dark-2: #262933;
+$color-dark-3: #1d1f27;
+
+// Roulette
+$roulette-color-gray: #4b5062;
+$roulette-border-gray: #404555;
+$roulette-color-green: #3adc47;
+$roulette-border-green: #33cc40;
+$roulette-color-blue: #2695ff;
+$roulette-border-blue: #41a2ff;
+
+
+
+
+
+// Texts
+// --------------------------------------------------
+$text-font: 'Inter', sans-serif;
+
+// Color
+$text-color-1: #fff;
+$text-color-2: #929499;
+$won: #26ff97;
+$lost: #ff5665;
+$tie: #929499;
+
+// Size
+$text-size-small: 12px;
+$text-size-normal: 13px;
+$text-size-big: 14px;
+$text-size-extra-big: 15px;
+$text-size-enormous: 16px;
+
+// Weight
+$text-weight-thin: 300;
+$text-weight-normal: 400;
+$text-weight-bold: 500;
+$text-weight-extra-bold: 600;
+$text-weight-heavy: 700;
+$text-weight-extra-heavy: 800;
+
+
+
+
+
+// General
+// --------------------------------------------------
+$general-radius: 3px;
+$general-transition: .2s;
+
+
+
+
+
+// Site
+// --------------------------------------------------
+$site-max-page-width: 1200px;
+$site-modals-transition: .12s ease-out;
+
+
+
+
+
+// Breakpoints
+// --------------------------------------------------
+$breakpoint-sm: 578px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1550px;
+
+:export {
+	breakpointSM: $breakpoint-sm;
+	breakpointMD: $breakpoint-md;
+	breakpointLG: $breakpoint-lg;
+	breakpointXL: $breakpoint-xl;
+}
+
+
+
+
+
+// Levels
+// --------------------------------------------------
+$silver: #a8a8a8;
+$platinum: #9d7e9e;
+$sapphire: #7573ff;
+$gold: #f4d45d;
+$emerald: #5bf571;
+$ruby: #ff5a5a;
+$diamond: #5dc1f5;
+$antimater: #fff;
+
+
+
+
+
+// Header
+// --------------------------------------------------
+$header-top-height: 58px;
+$header-bottom-height: 38px;
+$header-height: calc(#{$header-top-height} + #{$header-bottom-height});
+$header-mobile-height: 58px;
+
+
+
+
+
+// Mobile Bar
+// --------------------------------------------------
+$mobile-bar-height: 58px;
+
+
+
+
+
+// Mobile Menu
+// --------------------------------------------------
+$mobile-menu-width: 280px;
+
+
+
+
+
+// Chat
+// --------------------------------------------------
+$chat-width: 301px;
+$chat-width-xl: 281px;
+
+
+
+
+
+// Raffles
+// --------------------------------------------------
+$raffles-slot-color: (
+	1: #2695ff,
+	2: #ff2626,
+	3: #49ff26,
+	4: #8e26ff,
+	5: #ffffff,
+	6: #ff7a26,
+	7: #2647ff,
+	8: #ffff00,
+	9: #000000,
+	10: #72cbcc,
+	11: #c27f57,
+	12: #b38b00,
+	13: #ed75ff,
+	14: #458a47
+);
+
+
+
+
+
+// Profile
+// --------------------------------------------------
+$profile-menu-width: 300px;
+$profile-menu-width-xl: 280px;

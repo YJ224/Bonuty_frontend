@@ -1,0 +1,272 @@
+$footer-background: $color-light-6;
+
+.footer {
+	position: relative;
+	background-color: $footer-background;
+	border-top: 1px solid $line-color;
+
+	> div {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 3vw;
+	}
+
+	.content {
+		width: 100%;
+		max-width: $site-max-page-width;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@media screen and (max-width: $breakpoint-sm) {
+			justify-content: center;
+			flex-direction: column;
+		}
+	}
+
+	.license, .bottom {
+		border-top: 1px solid $line-color;
+	}
+
+	.left, .right {
+		display: flex;
+		align-items: center;
+
+		@media screen and (max-width: $breakpoint-sm) {
+			width: 100%;
+			justify-content: center;
+		}
+	}
+
+
+	/* TOP */
+	.top {
+		padding-top: 48px;
+		padding-bottom: 48px;
+
+		.content {
+			align-items: flex-start;
+		}
+
+		.left {
+			align-items: flex-start;
+			flex-direction: column;
+
+			@media screen and (max-width: $breakpoint-sm) {
+				align-items: center;
+				margin-bottom: 42px;
+			}
+
+			.slogan {
+				margin-top: 16px;
+			}
+
+			.lang-select {
+				margin-top: 16px;
+			}
+		}
+
+		.right {
+			align-items: flex-start;
+			margin-left: 64px;
+
+			@media screen and (max-width: $breakpoint-sm) {
+				justify-content: space-between;
+				margin-left: 0;
+				padding: 0 6vw;
+				zoom: 0.86;
+			}
+
+			.column {
+				&:not(:first-child) {
+					margin-left: 64px;
+
+					@media screen and (max-width: $breakpoint-sm) {
+						margin-left: 0;
+					}
+				}
+
+				.title {
+					color: $text-color-1;
+					font-size: $text-size-enormous;
+					font-weight: $text-weight-bold;
+					margin-bottom: 16px;
+				}
+
+				/* Links */
+				.links {
+					.link {
+						a {
+							transition: $general-transition;
+
+							&:hover {
+								color: #a7a7a7;
+							}
+						}
+
+						&:not(:first-child) {
+							margin-top: 8px;
+						}
+					}
+				}
+
+				/* Social Medias */
+				.social-medias {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					gap: 6px;
+
+					.social {
+						width: 30px;
+						height: 30px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border-radius: $general-radius;
+						background-color: $text-color-2;
+						color: $footer-background;
+
+						.tiktok-icon {
+							transform: scale(0.74);
+
+							path {
+								fill: $footer-background;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* LICENSE (MIDDLE) */
+	.license {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		color: rgba(255, 255, 255, 0.25);
+		font-size: $text-size-small;
+		font-weight: $text-weight-thin;
+
+		img {
+			height: 37px;
+			margin-right: 28px;
+		}
+	}
+
+
+	/* BOTTOM */
+	.bottom {
+		padding-top: 18px;
+		padding-bottom: 18px;
+
+		.left {
+			@media screen and (max-width: $breakpoint-sm) {
+				zoom: 0.86;
+			}
+
+			.plus18 {
+				height: 20px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: $primary;
+				border-radius: $general-radius;
+				color: $text-color-1;
+				font-size: $text-size-small;
+				margin-right: 20px;
+				padding: 0 8px;
+			}
+		}
+
+		.right {
+			@media screen and (max-width: $breakpoint-sm) {
+				margin-top: 16px;
+			}
+
+			.ping {
+				display: flex;
+				align-items: center;
+				font-size: $text-size-small;
+				margin-left: -2px;
+
+				.pulsating-circle {
+					width: 6px;
+					height: 6px;
+					display: inline-block;
+					position: relative;
+					margin-left: 6px;
+					margin-right: 14px;
+					transform: none;
+
+					&.low {
+						&::before {
+							background-color: #3adc47;
+						}
+						&::after {
+							background-color: #3adc47;
+						}
+					}
+
+					&.medium {
+						&::before {
+							background-color: #dc763a;
+						}
+						&::after {
+							background-color: #dc763a;
+						}
+					}
+
+					&.high {
+						&::before {
+							background-color: #dc3a3a;
+						}
+						&::after {
+							background-color: #dc3a3a;
+						}
+					}
+
+					&::before {
+						content: '';
+						position: relative;
+						display: block;
+						width: 300%;
+						height: 300%;
+						box-sizing: border-box;
+						margin-left: -100%;
+						margin-top: -100%;
+						border-radius: 50%;
+						animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+
+						@keyframes pulse-ring {
+							0% {
+								transform: scale(.33);
+							}
+							80%, 100% {
+								opacity: 0;
+							}
+						}
+					}
+
+					&::after {
+						content: '';
+						position: absolute;
+						left: 0;
+						top: 0;
+						display: block;
+						width: 100%;
+						height: 100%;
+						border-radius: 50%;
+						animation: none;
+					}
+				}
+
+				span {
+					color: #fff;
+					margin-right: 4px;
+				}
+			}
+		}
+	}
+}

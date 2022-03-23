@@ -1,0 +1,379 @@
+// Chat
+// --------------------------------------------------
+
+.chat {
+	width: $chat-width;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	right: 0;
+	flex-shrink: 0;
+	background-color: $color-light-6;
+	overflow-wrap: break-word;
+	z-index: 100;
+	border-left: 1px solid $color-dark-2;
+
+	&-enter-active, &-leave-active {
+		transition: $general-transition;
+	}
+
+	&-enter, &-leave-to {
+		margin-right: -$chat-width;
+	}
+
+	@media screen and (max-width: $breakpoint-xl) {
+		width: $chat-width-xl;
+
+		&-enter, &-leave-to {
+			margin-right: -$chat-width-xl;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-lg) {
+		position: absolute;
+	}
+
+	@media screen and (max-width: $breakpoint-sm) {
+		width: 100%;
+		border-left: none;
+
+		&-enter, &-leave-to {
+			margin-right: -100%;
+		}
+	}
+}
+
+
+
+
+
+// Header
+// --------------------------------------------------
+
+.header {
+	width: 100%;
+	flex: 0 0 calc(#{$header-height} + 1px);
+	background: $color-light-4;
+	border-bottom: 1px solid $color-light-6;
+
+	> div {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0px 20px;
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.top {
+		height: $header-top-height;
+		border-bottom: 1px solid #3c3e49;
+	}
+
+	.bottom {
+		height: $header-bottom-height;
+	}
+
+	// Channels
+	.channel-select {
+
+		// Button
+		button {
+			margin-left: -10px;
+
+			.flag {
+				width: unset;
+				height: 23px;
+				margin-right: 12px;
+			}
+
+			.dropdown-icon {
+				color: #828693;
+
+				svg {
+					margin-left: 8px;
+				}
+			}
+		}
+	}
+
+	// Rain
+	.rain-btn {
+		border: 2px solid #41444c;
+		font-size: $text-size-small;
+
+		svg {
+			margin-left: 10px;
+		}
+	}
+
+	// Online
+	.online-users {
+		font-size: $text-size-small;
+		margin-left: -2px;
+
+		.pulsating-circle {
+			width: 6px;
+			height: 6px;
+			display: inline-block;
+			position: relative;
+			margin-left: 6px;
+			margin-right: 14px;
+			transform: none;
+
+			&::before {
+				content: '';
+				position: relative;
+				display: block;
+				width: 300%;
+				height: 300%;
+				box-sizing: border-box;
+				margin-left: -100%;
+				margin-top: -100%;
+				border-radius: 50%;
+				background-color: $primary;
+				animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+
+				@keyframes pulse-ring {
+					0% {
+						transform: scale(.33);
+					}
+					80%, 100% {
+						opacity: 0;
+					}
+				}
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-color: $primary;
+				border-radius: 50%;
+				animation: none;
+			}
+		}
+
+		span {
+			color: #fff;
+			margin-right: 4px;
+		}
+	}
+
+	// Close Chat
+	.close-btn {
+		margin-right: -4px;
+	}
+}
+
+
+
+
+
+// Channels Popover
+// --------------------------------------------------
+
+.channels-popover {
+	width: 200px;
+	padding: 8px;
+	background-color: $color-light-2;
+	border-radius: $general-radius;
+
+	.channel {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 8px;
+		border-top: 1px solid $color-light-1;
+		border-radius: $general-radius;
+		transition: $general-transition;
+		cursor: pointer;
+		user-select: none;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.04);
+		}
+
+		&:first-child {
+			border-top: none;
+		}
+
+		&.selected {
+			width: 100%;
+			color: $text-color-1;
+			background-color: $color-light-1;
+			border-top-color: transparent;
+
+			+ .link {
+				border-top-color: transparent;
+			}
+
+			.icon svg {
+				color: $primary;
+			}
+		}
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+
+		.flag {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-right: 12px;
+		}
+	}
+}
+
+
+
+
+
+// Content
+// --------------------------------------------------
+$chat-padding: 20px;
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	position: relative;
+	overflow: hidden;
+
+	.wrapper {
+		width: 100%;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		position: relative;
+		overflow: hidden;
+
+		.content {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden auto;
+
+			.wrap {
+				padding: 0px calc(#{$chat-padding} - 10px); // if change -10px also change on ./Message/styles.scss
+			}
+		}
+	}
+
+	.scroll-to-bottom {
+		width: fit-content;
+		height: 38px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: $chat-padding;
+		color: $text-color-1;
+		white-space: nowrap;
+		background-color: $color-light-1;
+		border-radius: $general-radius;
+		margin: 0 auto;
+		padding: 0 18px;
+		cursor: pointer;
+		transition: $general-transition;
+
+		&:hover {
+			filter: brightness(1.15);
+		}
+
+		&-bg {
+			content: "";
+			width: 100%;
+			height: calc(38px + 18px);
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to bottom, #{$color-dark-2 + '00'}, $color-dark-2);
+			pointer-events: none;
+		}
+	}
+}
+
+
+
+
+
+// Footer
+// --------------------------------------------------
+
+.footer {
+	width: 100%;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	position: relative;
+	background-color: $color-light-4;
+	padding: 14px 20px;
+
+	.top {
+		position: relative;
+
+		textarea {
+			width: 100%;
+			background-color: $color-dark-1;
+			border: 2px solid #393b42;
+			border-radius: $general-radius;
+			padding-top: 14px;
+			padding-bottom: 18px;
+			padding-right: 48px;
+			transition: $general-transition;
+
+			&:focus {
+				border-color: $color-light-1;
+			}
+		}
+	}
+
+	.bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: $text-size-small;
+		margin-top: 10px;
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+
+		button {
+			height: 34px;
+		}
+
+		.left button {
+			width: 34px;
+			color: #646877;
+			border: 2px solid #41444c;
+
+			&:not(:first-child) {
+				margin-left: 10px;
+			}
+
+			&.active {
+				background-color: #41444c;
+			}
+		}
+	}
+}

@@ -1,0 +1,149 @@
+button {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	color: $text-color-1;
+	font-family: $text-font;
+	font-weight: $text-weight-bold;
+	padding: 0 26px;
+	border-bottom: 2px solid;
+	border-radius: $general-radius;
+	transition: $general-transition;
+
+	.loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.icon {
+		margin-right: 8px;
+	}
+
+	&.icon-only .icon {
+		margin: 0;
+	}
+
+
+
+
+
+	// Colors
+	// --------------------------------------------------
+	// Primary
+	&.primary {
+		background-color: $primary-light;
+		border-color: #1567b7;
+
+		&:hover {
+			background-color: #64b3ff;
+		}
+	}
+
+	// Secondary
+	&.secondary {
+		background-color: $secondary;
+		border-color: #363c4f;
+
+		&:hover {
+			background-color: #595f73;
+		}
+	}
+
+	// Transparent
+	&.transparent {
+		font-weight: $text-weight-normal;
+		background-color: transparent;
+		border-color: transparent;
+		padding: 0 12px;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.04);
+		}
+	}
+
+	// Red
+	&.red {
+		color: #ff4949;
+		background-color: #41313a;
+		border-color: transparent;
+		padding: 0 12px;
+
+		&:hover {
+			background-color: #44333c;
+		}
+	}
+
+	// Google
+	&.google {
+		background-color: #e85e5e;
+		border-color: #c73c3c;
+
+		&:hover {
+			background-color: #ef6c6c;
+		}
+	}
+
+
+
+
+
+	// Font sizes
+	// --------------------------------------------------
+	&.fs-small {
+		font-size: $text-size-small;
+	}
+
+
+
+
+
+	// Attributes
+	// --------------------------------------------------
+	// Disabled
+	&[disabled] {
+		opacity: 0.3;
+		cursor: not-allowed;
+	}
+
+	// Roulette Colors
+	&.roulette-gray {
+		height: 52px;
+		background-color: $roulette-color-gray;
+		border-color: #363c4f;
+
+		&:hover {
+			background-color: #595f73;
+		}
+	}
+
+	&.roulette-green {
+		height: 52px;
+		background-color: $roulette-color-green;
+		border-color: #2e9537;
+
+		&:hover {
+			background-color: #51e65d;
+		}
+	}
+
+	&.roulette-blue {
+		height: 52px;
+		background-color: $roulette-border-blue; // This is border color cuz designer is lazy
+		border-color: #1567b7;
+
+		&:hover {
+			background-color: #64b3ff;
+		}
+	}
+}

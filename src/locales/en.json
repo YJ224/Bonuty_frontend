@@ -1,0 +1,378 @@
+{
+	"site": {
+		"slogan": "Your favorite place to trade & win skins!",
+		"copyright": "Copyright © {year} {siteDomain}. All rights reserved.",
+		"consoleWarning": {
+			"title": "STOP!",
+			"lines": {
+				"1": "This section is intended for developers",
+				"2": "Do NOT paste any code in here! It will give them access to your account and they will steal your balance",
+				"3": "{siteName} admins/mods/staff will NEVER ask you to paste any code in here"
+			}
+		},
+		"levelRanks": {
+			"unranked": "Unranked",
+			"rust": "Rust",
+			"bronze": "Bronze",
+			"silver": "Silver",
+			"platinum": "Platinum",
+			"sapphire": "Sapphire",
+			"gold": "Gold",
+			"emerald": "Emerald",
+			"ruby": "Ruby",
+			"diamond": "Diamond",
+			"antimatter": "Antimatter"
+		},
+		"languages": {
+			"en": "English",
+			"es": "Spanish",
+			"ru": "Russian"
+		}
+	},
+
+
+
+
+
+	"layouts": {
+
+		"chat": {
+			"name": "Chat",
+			"input": "Enter a message...",
+			"onlineUsers": "Online",
+			"sendBtn": "Send",
+			"scrollToBottom": "Scroll to bottom",
+			"emotes": {
+				"emotes": {
+					"name": "Emotes"
+				},
+				"gifs": {
+					"name": "GIFs",
+					"search": "Search Tenor..."
+				}
+			},
+			"commands": {
+				"/user": {
+					"placeholders": "[userid]",
+					"description": "View user's profile"
+				},
+				"/tip": {
+					"placeholders": "[userid] [amount]",
+					"description": "Tip user"
+				},
+				"/tiprain": {
+					"placeholders": "[amount]",
+					"description": "Tip rain"
+				},
+				"/ignore": {
+					"placeholders": "[userid]",
+					"description": "Ignore user"
+				},
+				"/unignore": {
+					"placeholders": "[userid]",
+					"description": "Unignore user"
+				}
+			},
+			"overlayButtons": {
+				"profile": "View Profile",
+				"tip": "Tip User",
+				"ignore": "Ignore User",
+				"copyUID": "Copy UID",
+				"mute": "Mute User",
+				"delete": "Delete Msg",
+				"deleteAll": "Delete All Msgs",
+				"ban": "Ban User"
+			}
+		},
+
+		"footer": {
+			"columns": {
+				"1": "About",
+				"2": "Help",
+				"social": "Social"
+			}
+		},
+
+		"mobileNav": {
+			"name": "Menu"
+		}
+
+	},
+
+
+
+
+
+	"pages": {
+
+		"roulette": {
+			"name": "Roulette",
+			"bonusPot": {
+				"title": "Bonus Jackpot",
+				"subTitle": "How does it work?",
+				"amountLabel": "Pot Amount"
+			},
+			"roundId": "Round ID",
+			"timer": {
+				"open": "Rolling in {s} seconds...",
+				"rolling": "Rolling...",
+				"rolled": "Rolled {color}!"
+			},
+			"previousRolls": "Previous Rolls",
+			"last100Rolls": "Last 100 Rolls",
+			"colors": {
+				"gray": "Gray",
+				"green": "Green",
+				"blue": "Blue"
+			},
+			"betsAmount": "{n} Bet | {n} Bets"
+		},
+
+
+		"raffles": {
+			"name": "Raffles",
+			"pendingWinnings": "No pending winnings | {n} pending winning | {n} pending winnings",
+			"activeRaffles": "{n} active raffle | {n} active raffles",
+			"createBtn": "Create Raffle",
+			"quickJoin": "Quick Join for {amount}"
+		},
+
+
+		"blackjack": {
+			"name": "Blackjack",
+			"placeholder": {
+				"1": "Blackjack pays",
+				"2": "3 to 2"
+			},
+			"betPanel": {
+				"left": "Select the bet amount",
+				"right": "Or simply type here"
+			},
+			"atStake": "At Stake",
+			"playBtn": "Play Now",
+			"got": {
+				"dealer": "Dealer got",
+				"player": "You got"
+			},
+			"selectAction": "Select your action",
+			"actions": {
+				"stand": "Stand",
+				"hit": "Hit",
+				"doubleDown": "Double Down"
+			},
+			"waitingDealer": "Waiting for dealer...",
+			"playAgainBtn": "Play Again"
+		},
+
+
+		"profile": {
+			"name": "Profile",
+			"tabs": {
+				"dashboard": {
+					"name" : "Dashboard",
+					"stats": {
+						"transactions": {
+							"totalDeposited": "Total Deposited",
+							"totalWithdrawn": "Total Withdrawn",
+							"totalWagered": "Total Wagered",
+							"totalProfit": "Total Profit"
+						},
+						"tips": {
+							"tipsSent": "Total Sent",
+							"tipsReceived": "Total Received",
+							"tipsRain": "Rain Total Tipped"
+						},
+						"rewards": {
+							"cashbackClaimed": "Cashback Claimed",
+							"dailyFreeClaimed": "Daily Free Claimed",
+							"rainCollected": "Rain Collected"
+						},
+						"trivias": {
+							"triviasCodeWon": "Won on Code Trivias",
+							"triviasQuestionWon": "Won on Q&A Trivias",
+							"triviasMathWon": "Won on Math Trivias"
+						}
+					}
+				},
+				"transactions": {
+					"name" : "Transactions"
+				},
+				"ignoredUsers": {
+					"name": "Ignored Users"
+				},
+				"settings": {
+					"name" : "Settings"
+				}
+			},
+			"logout": "Log Out"
+		},
+
+
+		"affiliates": {
+			"name": "Affiliates"
+		},
+
+
+		"levels": {
+			"name": "Levels"
+		},
+
+
+		"fairness": {
+			"name": "Fairness",
+			"terms": {
+				"publicSeed": "Public Seed",
+				"hashedSecret": "Hashed Secret"
+			}
+		},
+
+
+		"faq": {
+			"name": "Frequently Asked Questions",
+			"short": "FAQ"
+		},
+
+
+		"tos": {
+			"name": "Terms of Service"
+		},
+
+
+		"privacyPolicy": {
+			"name": "Privacy Policy"
+		},
+
+
+		"amlPolicy": {
+			"name": "AML Policy"
+		},
+
+
+		"refundPolicy": {
+			"name": "Refund Policy"
+		}
+
+	},
+
+
+
+
+
+	"modals": {
+
+		"auth": {
+			"login": {
+				"name": "Login",
+				"with": "Login with {method}",
+				"inputs": {
+					"1": {
+						"label": "Username or Email",
+						"placeholder": "Username or email address"
+					},
+					"2": {
+						"label": "Password",
+						"placeholder": "******************"
+					}
+				},
+				"btn": "Login",
+				"forgotBtn": "Forgot Password?"
+			},
+			"register": {
+				"name": "Register",
+				"with": "Register with {method}",
+				"inputs": {
+					"1": {
+						"label": "Username",
+						"placeholder": "Username"
+					},
+					"2": {
+						"label": "Email",
+						"placeholder": "youremail@domain.com"
+					},
+					"3": {
+						"label": "Password",
+						"placeholder": "******************"
+					}
+				},
+				"btn": "Register"
+			},
+			"2FA": {
+				"name": "Two Factor Authentication"
+			},
+			"or": "Or",
+			"terms": "By accessing the site I attest that I am at least 18 years old, and have read and accept the Terms of Service"
+		},
+
+
+		"raffle": {
+			"title": "Raffle #{id}",
+			"ticketPrice": "Ticket Price",
+			"totalSlots": "Total Slots",
+			"buyBtn": {
+				"disabled": "Select a ticket...",
+				"enabled": "Buy Ticket(s) - {amount}"
+			}
+		},
+
+
+		"rewards": {
+			"name": "Rewards"
+		},
+
+
+		"chatRules": {
+			"name": "Chat Rules"
+		}
+
+	},
+
+
+
+
+
+	"uikit": {
+
+		"betInput": {
+			"placeholder": "Enter amount...",
+			"buttons": {
+				"max": "Max"
+			}
+		}
+
+	},
+
+
+
+
+
+	"others": {
+		"won": "Won",
+		"lost": "Lost",
+		"tie": "Tie",
+		"bets": "Bets",
+		"wagered": "Wagered",
+		"profit": "Profit",
+		"support": "Support",
+		"serversStatus": "Servers Status",
+		"share": "Share",
+		"commands": "Commands",
+		"price": "Price",
+		"allPrices": "All Prices",
+		"sort": "Sort",
+		"ascending": "Ascending",
+		"descending": "Descending",
+		"players": "Players",
+		"memberSince": "Member since {date}",
+		"tips": "Tips",
+		"rain": "Rain",
+		"trivias": "Trivias",
+		"deposits": "Deposits",
+		"withdrawals": "Withdrawals",
+		"id": "ID",
+		"amount": "Amount",
+		"method": "Method",
+		"status": "Status",
+		"transactionID": "Transaction ID",
+		"date": "Date"
+	}
+}

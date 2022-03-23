@@ -1,0 +1,89 @@
+$table-padding: 30px;
+$table-row-height: 44px;
+
+:export {
+	tablePadding: $table-padding;
+	tableRowHeight: $table-row-height;
+}
+
+.table {
+	width: 100%;
+	background-color: $color-light-6;
+	border-radius: $general-radius;
+	padding: $table-padding 0;
+
+	> div {
+		padding: 0 $table-padding;
+	}
+
+
+	// Header
+	// --------------------------------------------------
+	.header {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+
+		.td {
+			color: $text-color-2;
+		}
+	}
+
+
+	// Row
+	.row {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	// Td
+	.td {
+		min-width: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $text-color-1;
+		padding: 0 calc(#{$table-padding} / 2);
+		overflow: hidden;
+
+		&:first-child {
+			justify-content: flex-start;
+			padding-left: 0;
+		}
+
+		&:last-child {
+			justify-content: flex-end;
+			padding-right: 0;
+		}
+
+		&.text-color-2 {
+			color: $text-color-2;
+		}
+
+		span {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+	}
+
+
+	// Body
+	// --------------------------------------------------
+	.body {
+
+		.row {
+			height: $table-row-height;
+		}
+	}
+
+
+	.footer {
+		border-top: 2px solid $line-color;
+		margin-top: $table-padding;
+		padding-top: $table-padding;
+	}
+}

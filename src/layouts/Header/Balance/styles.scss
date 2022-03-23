@@ -1,0 +1,53 @@
+.balance-wrap {
+	display: flex;
+	align-items: center;
+
+	> div:not(:first-child), > a:not(:first-child) {
+		margin-left: 8px;
+	}
+
+	.balance {
+		height: 34px;
+		display: flex;
+
+		.bal-content {
+			height: 100%;
+			display: flex;
+			align-items: center;
+			color: $text-color-1;
+			font-size: $text-size-extra-big;
+			background-color: $color-light-1;
+			border-radius: $general-radius 0 0 $general-radius;
+			padding: 0 14px;
+
+			> span {
+				transition: .5s;
+
+				&.counting {
+					color: #ffdd86;
+					transition: none;
+				}
+			}
+		}
+
+		.deposit button {
+			width: 34px;
+			height: 34px;
+			border: none;
+			border-radius: 0 $general-radius $general-radius 0;
+			padding: 0;
+		}
+	}
+
+	.withdraw button {
+		width: 34px;
+		height: 34px;
+		color: #828693;
+		background-color: $color-light-1;
+		padding: 0;
+
+		&:hover {
+			filter: brightness(1.1)
+		}
+	}
+}

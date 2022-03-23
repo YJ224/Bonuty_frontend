@@ -1,0 +1,226 @@
+// Card
+// --------------------------------------------------
+$card-height: 50px;
+
+.card {
+	position: relative;
+	margin-left: 5px;
+
+	.wrap {
+		width: 210px;
+		height: $card-height;
+		flex-shrink: 0;
+		position: relative;
+		background-color: $color-light-6;
+		border-radius: $general-radius;
+		transition: $general-transition;
+		overflow: hidden;
+		cursor: pointer;
+		user-select: none;
+
+		&:hover {
+			background-color: $color-light-3;
+
+			.content .skin img {
+				margin-right: -10px;
+			}
+		}
+
+		&.active {
+			background-color: $color-light-1;
+
+			.content .skin img {
+				margin-right: -10px;
+			}
+		}
+
+		.content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 8px;
+
+			.user {
+				width: 100%;
+				max-width: 140px;
+				display: flex;
+				align-items: center;
+				color: $text-color-1;
+				overflow: hidden;
+
+				.avatar {
+					margin-right: 14px;
+				}
+
+				.username {
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+			}
+
+			.skin {
+				position: absolute;
+				right: 0;
+
+				@media screen and (max-width: $breakpoint-lg) {
+					pointer-events: none;
+				}
+
+				&::before {
+					content: "";
+					width: 100%;
+					height: $card-height;
+					position: absolute;
+					right: 0;
+					background: radial-gradient(circle at 100%, #FF4E4E30, #FF4E4E00, #FF4E4E00 100%);
+					transition: $general-transition;
+					z-index: 1;
+				}
+
+				img {
+					width: unset;
+					height: $card-height;
+					margin-right: -15px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// Popover
+// --------------------------------------------------
+
+.popover {
+	width: 210px;
+	padding: 12px;
+
+	.top {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.amount {
+			height: 34px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $text-color-1;
+			padding: 0 12px;
+			background-color: $color-light-1;
+			border-radius: $general-radius;
+		}
+
+		.players {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+
+			.player {
+				background-color: $color-light-6;
+				border-radius: $general-radius;
+				padding: 3px;
+
+				&:not(:first-child) {
+					margin-right: -16px;
+				}
+
+				&:nth-child(1) {
+					z-index: 3;
+
+					.avatar {
+						opacity: 1;
+					}
+				}
+
+				&:nth-child(2) {
+					z-index: 2;
+
+					.avatar {
+						opacity: 0.2;
+					}
+				}
+
+				&:nth-child(3) {
+					z-index: 1;
+
+					.avatar {
+						opacity: 0.1;
+					}
+				}
+
+				.avatar {
+					border-radius: $general-radius;
+				}
+			}
+		}
+	}
+
+	.middle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 14px;
+
+		> div {
+			display: flex;
+			align-items: center;
+		}
+
+		svg {
+			transform: rotate(120deg);
+			margin-right: 6px;
+		}
+	}
+
+	.line {
+		width: 100%;
+		height: 2px;
+		background-color: $color-light-2;
+		margin-top: 14px;
+	}
+
+	.bottom {
+		display: flex;
+		align-items: center;
+		margin-top: 14px;
+
+		.replay {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: $color-light-1;
+			border-radius: 50%;
+			transition: $general-transition;
+
+			&:hover {
+				filter: brightness(1.2);
+			}
+		}
+
+		.share {
+			height: 30px;
+			display: flex;
+			align-items: center;
+			background-color: transparent;
+			border-radius: $general-radius;
+			color: $text-color-2;
+			margin-left: 12px;
+			padding: 0 8px;
+			transition: $general-transition;
+
+			&:hover {
+				background-color: $color-light-6;
+				filter: brightness(1.2);
+			}
+
+			svg {
+				margin-right: 8px;
+			}
+		}
+	}
+}

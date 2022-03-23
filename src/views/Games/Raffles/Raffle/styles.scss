@@ -1,0 +1,136 @@
+.raffle {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: $color-light-6;
+	border-radius: $general-radius;
+	cursor: pointer;
+	transition: $general-transition;
+
+	&:hover {
+		background-color: $color-light-3;
+
+		.skin-img img {
+			transform: scale(1.1);
+		}
+	}
+
+	.content {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		padding: 12px;
+
+		/* Top Stats */
+		.top-stats {
+			width: 100%;
+			height: 34px;
+			display: flex;
+			justify-content: space-between;
+
+			.amount {
+				display: flex;
+				align-items: center;
+				color: $text-color-1;
+				background-color: $color-light-1;
+				border-radius: $general-radius;
+				padding: 0 12px;
+			}
+
+			.players {
+				display: flex;
+				align-items: center;
+
+				span {
+					margin-right: 6px;
+				}
+
+				.avatar {
+					border: 3px solid $color-light-6;
+					border-radius: calc(#{$general-radius} + 3px);
+
+					&:not(:last-child) {
+						margin-right: -16px;
+					}
+				}
+			}
+		}
+
+		/* Skin Img */
+		.skin-img {
+			width: 100%;
+			position: relative;
+
+			.skin-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+
+			img {
+				width: unset;
+				height: 100px;
+				position: relative;
+				top: 8px;
+			}
+		}
+
+		/* Skin Info */
+		.skin-info {
+			margin-top: 8px;
+			text-align: center;
+
+			.name {
+				color: $text-color-1;
+			}
+
+			.wear {
+				margin-top: 6px;
+			}
+		}
+
+		/* Middle Stats */
+		.middle-stats {
+			width: calc(100% - 16px);
+			margin-top: 30px;
+
+			.bar {
+				width: 100%;
+				height: 2px;
+				background-color: #{$primary + '38'};
+				border-radius: $general-radius;
+				overflow: hidden;
+
+				> div {
+					width: 0%;
+					height: 100%;
+					background-color: $primary;
+				}
+			}
+
+			.info {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-top: 14px;
+			}
+		}
+	}
+
+
+	/* Button */
+	button {
+		border-radius: 0 0 $general-radius $general-radius;
+		margin-top: 20px;
+
+		@media screen and (max-width: $breakpoint-sm) {
+			font-size: $text-size-big;
+		}
+	}
+}

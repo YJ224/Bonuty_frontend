@@ -1,0 +1,56 @@
+.modal {
+	width: 100%;
+	position: relative;
+	background: $color-light-6;
+	border-radius: $general-radius;
+
+	.modal-inner {
+		width: 100%;
+		position: relative;
+		padding: 30px;
+		animation: g-fade-in $general-transition forwards;
+	}
+
+	&.top {
+		position: absolute;
+		top: 100px;
+	}
+
+	.close {
+		$close-size: 34px;
+		width: $close-size;
+		height: $close-size;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		position: absolute;
+		top: 0;
+		right: calc(-#{$close-size} - 12px);
+		color: #fff;
+		background-color: $color-light-1;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: $general-transition;
+		z-index: 10;
+
+		&:hover {
+			filter: brightness(1.2);
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-lg) {
+		.close {
+			top: 12px;
+			right: 12px;
+			zoom: 0.84;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-sm) {
+		.modal-inner {
+			padding: 20px;
+			zoom: 0.92;
+		}
+	}
+}

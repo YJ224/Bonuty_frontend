@@ -1,0 +1,9 @@
+.avatar {
+	width: 24px;
+	height: 24px;
+	border-radius: $general-radius;
+
+	&[lazy=loading] {
+		transform: scale(0.92);
+	}
+}

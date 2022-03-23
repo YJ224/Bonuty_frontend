@@ -1,0 +1,247 @@
+// Title
+// --------------------------------------------------
+
+.title {
+	color: $text-color-1;
+	font-size: $text-size-big;
+	text-align: center;
+}
+
+
+
+
+
+// Skin
+// --------------------------------------------------
+
+.skin {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	margin-top: 12px;
+
+	.skin-bg {
+		position: absolute;
+		top: 16px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+
+	img {
+		width: unset;
+		height: 125px;
+		position: relative;
+	}
+
+	.price {
+		width: fit-content;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		color: $text-color-1;
+		font-size: $text-size-big;
+		background-color: $color-light-1;
+		border-radius: $general-radius;
+		margin-top: -42px;
+		padding: 0 12px;
+	}
+
+	.name {
+		color: $text-color-1;
+		font-size: $text-size-big;
+		margin-top: 20px;
+	}
+
+	.wear {
+		margin-top: 6px;
+	}
+}
+
+
+
+
+
+// Stats
+// --------------------------------------------------
+
+.stats {
+	width: 100%;
+	margin-top: 22px;
+
+	.ticket-price, .total-slots {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		div {
+			display: flex;
+			align-items: center;
+
+			&:last-child {
+				color: $text-color-1;
+			}
+		}
+	}
+
+	.bar {
+		width: 100%;
+		height: 2px;
+		margin: 20px 0;
+		background-color: #{$primary + '38'};
+		border-radius: $general-radius;
+		overflow: hidden;
+
+		> div {
+			height: 100%;
+			background-color: $primary;
+		}
+	}
+}
+
+
+
+
+
+// Tickets
+// --------------------------------------------------
+
+.tickets {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 40px);
+	grid-gap: 9px;
+	justify-content: space-between;
+	position: relative;
+	margin-top: 22px;
+
+	.ticket {
+		min-width: auto;
+		width: 40px;
+		height: 40px;
+		flex-shrink: 0;
+		background: transparent;
+		display: flex;
+		position: relative;
+		transform-style: preserve-3d;
+		border: 0;
+		cursor: pointer;
+		transform: rotateY(180deg);
+		transition: $general-transition;
+		user-select: none;
+
+		@each $slot, $i in $raffles-slot-color {
+			&.selected:nth-child(#{$slot}) .front {
+				background-color: #{map-get($raffles-slot-color, $slot) + '38'};
+				border-color: map-get($raffles-slot-color, $slot);
+			}
+
+			&:not(.empty):nth-child(#{$slot}) .back {
+				border-color: map-get($raffles-slot-color, $slot);
+			}
+		}
+
+		&.empty {
+			transform: rotateY(0);
+		}
+
+		> div {
+			width: 100%;
+			height: 100%;
+			background-color: $color-light-1;
+			border-radius: $general-radius;
+			border: 2px solid $color-light-1;
+		}
+
+		.front {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $text-color-1;
+			position: absolute;
+			backface-visibility: hidden;
+			transition: $general-transition;
+			z-index: 1;
+		}
+
+		.back {
+			position: absolute;
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+
+
+
+
+// Buttons
+// --------------------------------------------------
+
+.buttons {
+	height: 50px;
+	display: flex;
+	margin-top: 22px;
+
+	button {
+		&:not(:first-child) {
+			flex-shrink: 0;
+			margin-left: 8px;
+		}
+
+		img {
+			height: 22px;
+		}
+	}
+}
+
+
+
+
+
+// Hashed Secret
+// --------------------------------------------------
+
+.hashed-secret {
+	display: flex;
+	align-items: center;
+	margin-top: 22px;
+
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $primary;
+		margin-right: 12px;
+	}
+
+	.container {
+		width: 100%;
+		max-width: calc(100% - 25px);
+		font-size: $text-size-small;
+	}
+
+	.label {
+		color: $text-color-1;
+	}
+
+	.value {
+		display: flex;
+		margin-top: 4px;
+
+		span {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.copy {
+			flex-shrink: 0;
+			color: #fff;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+	}
+}

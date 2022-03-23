@@ -1,0 +1,45 @@
+// Card
+// --------------------------------------------------
+$card-height: 50px;
+
+.card {
+	position: relative;
+	margin-left: 5px;
+
+	.wrap {
+		width: 210px;
+		height: $card-height;
+		flex-shrink: 0;
+		position: relative;
+		background-color: $color-light-6;
+		border-radius: $general-radius;
+		transition: $general-transition;
+		overflow: hidden;
+
+		.content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 8px;
+
+			.user {
+				width: 100%;
+				max-width: 140px;
+				display: flex;
+				align-items: center;
+				color: $text-color-1;
+				overflow: hidden;
+
+				.avatar {
+					margin-right: 14px;
+				}
+
+				.username {
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+				}
+			}
+		}
+	}
+}

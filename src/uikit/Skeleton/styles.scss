@@ -1,0 +1,25 @@
+.skeleton {
+	background-color: $color-light-6;
+	border-radius: $general-radius;
+	animation: breathe .8s linear infinite;
+
+	&.light {
+		background-color: $color-light-2;
+	}
+
+	&.lighter {
+		background-color: #4b5062;
+	}
+
+	@keyframes breathe {
+		0% {
+			filter: none;
+		}
+		50% {
+			filter: brightness(1.15);
+		}
+		100% {
+			filter: none;
+		}
+	}
+}

@@ -1,0 +1,237 @@
+// Emote Btn
+// --------------------------------------------------
+
+.emote-btn {
+	width: 34px;
+	height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 9px;
+	right: 9px;
+	color: #646877;
+	border-radius: 50%;
+
+	svg {
+		margin-bottom: -1px;
+	}
+}
+
+
+
+
+
+// Emotes Popover
+// --------------------------------------------------
+
+.emotes-popover {
+	width: 306px;
+	height: 415px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	right: $chat-width;
+	bottom: -44px;
+	background-color: $color-light-4;
+	border-radius: $general-radius;
+
+	@media screen and (max-width: $breakpoint-xl) {
+		right: $chat-width-xl;
+	}
+
+	@media screen and (max-width: $breakpoint-sm) {
+		width: 100%;
+		height: 375px;
+		right: 0;
+		bottom: 84px;
+	}
+
+	.popover-header {
+		display: flex;
+		align-items: center;
+		border-bottom: 2px solid #3c3e49;
+		flex: 0 0 42px;
+
+		.btn {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			padding: 0 12px;
+			transition: $general-transition;
+			cursor: pointer;
+			user-select: none;
+
+			&:hover {
+				color: #a7a7a7;
+			}
+
+			.btn-content {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				position: relative;
+				width: fit-content;
+
+				&::after {
+					content: "";
+					width: 0;
+					height: 2px;
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: -2px;
+					margin: 0 auto;
+					background-color: $primary;
+					opacity: 0;
+					transition: $general-transition;
+				}
+			}
+
+			&.selected {
+				color: $text-color-1;
+
+				.btn-content::after {
+					width: 100%;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.popover-body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		overflow: hidden;
+		padding: 12px;
+
+		.input {
+			margin-bottom: 12px;
+		}
+
+		.tab {
+			width: 100%;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			overflow: hidden;
+
+			.tab-content {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				overflow: hidden auto;
+				padding-right: 6px;
+			}
+
+			&-emotes {
+
+				.emotes {
+					display: grid;
+					grid-template-columns: repeat(auto-fill, 32px);
+					grid-gap: 4px;
+					justify-content: space-between;
+					margin-top: 8px;
+
+					.emote {
+						width: 32px;
+						height: 32px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border-radius: $general-radius;
+						padding: 4px;
+						transition: $general-transition;
+						cursor: pointer;
+
+						&.selected {
+							background-color: $color-light-1;
+						}
+
+						img {
+							width: 100%;
+							pointer-events: none;
+						}
+					}
+				}
+			}
+
+			&-gifs {
+				width: calc(100% + 6px);
+				display: flex;
+				position: relative;
+
+				.loader {
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 20px;
+				}
+
+				.gifs {
+					width: 100%;
+					display: flex;
+					margin-right: 6px;
+
+					.column {
+						width: 50%;
+						height: fit-content;
+
+						&:not(:first-child) {
+							margin-left: 4px;
+						}
+
+						.vue-aspect-ratio:not(:first-child) {
+							margin-top: 4px;
+						}
+
+						.gif {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							position: relative;
+
+							.skeleton {
+								position: absolute;
+								top: 0;
+								left: 0;
+							}
+
+							img {
+								width: 100%;
+								height: 100%;
+								position: relative;
+								border-radius: $general-radius;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.emotes-overlay {
+		width: 100%;
+		flex: 0 0 48px;
+		display: flex;
+		align-items: center;
+		color: $text-color-1;
+		border-top: 2px solid #3c3e49;
+		padding: 0 12px;
+
+		img {
+			height: 30px;
+			margin-right: 16px;
+		}
+	}
+}
+

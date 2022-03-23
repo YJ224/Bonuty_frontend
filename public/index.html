@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Meta -->
+		<meta charset="utf-8" />
+		<title><%= VUE_APP_HTML_TITLE %></title>
+		<meta name="description" content="<%= VUE_APP_HTML_DESCRIPTION %>" />
+		<meta name="keywords" content="Casino, Gambling, Bets, Roulette, Raffles, CSGO, Cryptocurrencies, Bitcoin, Ethereum, Litecoin" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+		<meta name="theme-color" content="#262933">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="mobile-web-app-capable" content="yes">
+
+		<!-- Icons -->
+		<link rel="icon" href="<%= BASE_URL %>assets/favicons/favicon.ico">
+		<link rel="icon" type="image/png" href="<%= BASE_URL %>assets/favicons/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="<%= BASE_URL %>assets/favicons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="<%= BASE_URL %>assets/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="<%= BASE_URL %>assets/favicons/favicon-128x128.png" sizes="128x128" />
+		<link rel="icon" type="image/png" href="<%= BASE_URL %>assets/favicons/favicon-196x196.png" sizes="196x196" />
+
+		<!-- iOS -->
+		<meta name="apple-mobile-web-app-title" content="<%= VUE_APP_HTML_DOMAIN %>">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<link rel="apple-touch-icon" href="<%= BASE_URL %>assets/iOS/icon192.png" />
+		<link rel="apple-touch-startup-image" href="<%= BASE_URL %>assets/iOS/launch.png"> <!-- iOS App loading screen -->
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<%= BASE_URL %>assets/iOS/57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="<%= BASE_URL %>assets/iOS/60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%= BASE_URL %>assets/iOS/72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<%= BASE_URL %>assets/iOS/76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%= BASE_URL %>assets/iOS/114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<%= BASE_URL %>assets/iOS/120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= BASE_URL %>assets/iOS/144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<%= BASE_URL %>assets/iOS/152x152.png" />
+
+		<!-- Microsoft Application -->
+		<meta name="application-name" content="<%= VUE_APP_HTML_DOMAIN %>" />
+		<meta name="msapplication-TileColor" content="#2c2f39" />
+		<meta name="msapplication-TileImage" content="<%= BASE_URL %>assets/MS/144x144.png" />
+		<meta name="msapplication-square70x70logo" content="<%= BASE_URL %>assets/MS/70x70.png" />
+		<meta name="msapplication-square150x150logo" content="<%= BASE_URL %>assets/MS/150x150.png" />
+		<meta name="msapplication-wide310x150logo" content="<%= BASE_URL %>assets/MS/310x150.png" />
+		<meta name="msapplication-square310x310logo" content="<%= BASE_URL %>assets/MS/310x310.png" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website">
+		<meta property="og:site_name" content="<%= VUE_APP_HTML_DOMAIN %>">
+		<meta property="og:url" content="https://<%= VUE_APP_HTML_DOMAIN %>" />
+		<meta property="og:title" content="<%= VUE_APP_HTML_TITLE %>" />
+		<meta property="og:description" content="<%= VUE_APP_HTML_DESCRIPTION %>" />
+		<meta property="og:image" content="<%= BASE_URL %>favicon.ico" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@<%= VUE_APP_HTML_TWITTER_USERNAME %>" />
+		<meta name="twitter:title" content="<%= VUE_APP_HTML_TITLE %>">
+		<meta name="twitter:description" content="<%= VUE_APP_HTML_DESCRIPTION %>">
+		<meta name="twitter:image" content="<%= VUE_APP_HTML_TWITTER_IMAGE %>">
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="//fonts.gstatic.com" />
+		<link href="//fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+
+		<noscript>
+			<strong>We're sorry but <%= VUE_APP_HTML_DOMAIN %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+		</noscript>
+
+
+		<div id="app">
+
+			<style>
+				html,
+				body,
+				#app {
+					height: 100%;
+					width: 100%;
+					margin: 0;
+					overflow: hidden;
+				}
+
+				body {
+					color: #929499;
+					font-family: 'Inter', sans-serif;
+					font-size: 13px;
+					font-weight: 400;
+					background-color: #262933;
+				}
+
+				.loading-screen {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.grid {
+					width: 80px;
+					height: 80px;
+					display: inline-block;
+					position: relative;
+				}
+
+				.grid div {
+					width: 12px;
+					height: 12px;
+					position: absolute;
+					border-radius: 2px;
+					background: #404555;
+					animation: grid 1.2s linear infinite;
+				}
+
+				.grid div:nth-child(1) {
+					top: 12px;
+					left: 12px;
+					animation-delay: 0s;
+				}
+
+				.grid div:nth-child(2) {
+					top: 12px;
+					left: 32px;
+					animation-delay: -0.4s;
+				}
+
+				.grid div:nth-child(3) {
+					top: 12px;
+					left: 52px;
+					animation-delay: -0.8s;
+				}
+
+				.grid div:nth-child(4) {
+					top: 32px;
+					left: 12px;
+					animation-delay: -0.4s;
+				}
+
+				.grid div:nth-child(5) {
+					top: 32px;
+					left: 32px;
+					animation-delay: -0.8s;
+				}
+
+				.grid div:nth-child(6) {
+					top: 32px;
+					left: 52px;
+					animation-delay: -1.2s;
+				}
+
+				.grid div:nth-child(7) {
+					top: 52px;
+					left: 12px;
+					animation-delay: -0.8s;
+				}
+
+				.grid div:nth-child(8) {
+					top: 52px;
+					left: 32px;
+					animation-delay: -1.2s;
+				}
+
+				.grid div:nth-child(9) {
+					top: 52px;
+					left: 52px;
+					animation-delay: -1.6s;
+				}
+
+				@keyframes grid {
+					0%, 100% {
+						opacity: 1;
+					}
+					50% {
+						opacity: 0.5;
+					}
+				}
+			</style>
+
+			<div class="loading-screen">
+				<div style="display: grid; text-align: center">
+					<div class="grid">
+						<div></div><div></div><div></div>
+						<div></div><div></div><div></div>
+						<div></div><div></div><div></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<div id="notifications"></div>
+
+	</body>
+</html>

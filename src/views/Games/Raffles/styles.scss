@@ -1,0 +1,149 @@
+// History
+// --------------------------------------------------
+
+.history {
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	position: fixed;
+	top: $header-height;
+	left: 0;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	background: linear-gradient(to bottom, $color-dark-2 -10%, #{$color-dark-2 + '8f'} 75%, #{$color-dark-2 + '00'} 100%);
+	transition: $general-transition;
+	z-index: 40;
+
+	&.chat-open {
+		width: calc(100% - #{$chat-width});
+
+		@media screen and (max-width: $breakpoint-xl) {
+			width: calc(100% - #{$chat-width-xl});
+		}
+
+		@media screen and (max-width: $breakpoint-lg) {
+			width: 100%;
+		}
+	}
+
+	&::after {
+		content: "";
+		height: 50px;
+		width: 400px;
+		position: absolute;
+		right: 0;
+		background: linear-gradient(to right, #{$color-dark-2 + '00'}, $color-dark-2 100%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	@media screen and (max-width: $breakpoint-md) {
+		top: $header-mobile-height;
+		overflow: auto hidden;
+
+		&::after {
+			width: 100px;
+			position: fixed;
+			background: linear-gradient(to right, #{$color-dark-2 + '00'}, #{$color-dark-2 + 'e8'} 100%);
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+// Header
+// --------------------------------------------------
+
+.header {
+	width: 100%;
+	height: 46px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+
+	@media screen and (max-width: $breakpoint-sm) {
+		margin-top: 62px;
+	}
+
+	> div {
+		display: flex;
+		align-items: center;
+	}
+
+	.left {
+		.line {
+			width: 1px;
+			height: 24px;
+			margin: 0 20px;
+			background-color: $line-color;
+		}
+	}
+
+	button {
+		height: 100%;
+		padding: 0 18px;
+	}
+
+	.right > :not(:first-child) {
+		margin-left: 12px;
+	}
+}
+
+
+
+
+
+// Separator
+// --------------------------------------------------
+
+.separator {
+	width: 100%;
+	height: 1px;
+	background-color: $line-color;
+	margin-top: 30px;
+
+	@media screen and (max-width: $breakpoint-sm) {
+		margin-top: 22px;
+	}
+}
+
+
+
+
+
+// Raffles
+// --------------------------------------------------
+
+.raffles {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 12px;
+	justify-content: space-between;
+	position: relative;
+	margin-top: 30px;
+	text-align: center;
+
+	.raffle-item-enter, .raffle-item-leave-to {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+
+	.raffle-item-leave-active {
+		position: absolute;
+	}
+
+	.raffle-item-move {
+		transition: transform $general-transition;
+	}
+
+	@media screen and (max-width: $breakpoint-sm) {
+		zoom: 0.8;
+	}
+}

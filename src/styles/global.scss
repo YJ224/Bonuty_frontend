@@ -1,0 +1,567 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	background-color: $color-dark-2;
+	color: $text-color-2;
+	font-family: $text-font;
+	font-size: $text-size-normal;
+	font-weight: $text-weight-normal;
+	overflow: hidden;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color:  transparent;
+}
+
+*, ::after, ::before {
+	box-sizing: border-box;
+}
+
+a {
+	color: $text-color-2;
+	text-decoration: none;
+}
+
+input, button, textarea {
+	&:focus {
+		outline: none;
+	}
+}
+
+input, textarea {
+	color: $text-color-1;
+	font-family: $text-font;
+	padding: 0 20px;
+
+	&::placeholder {
+		color: #636469;
+	}
+
+	// Remove arrows from number input
+	&::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	&[type=number] {
+		-moz-appearance: textfield;
+	}
+}
+
+textarea {
+	line-height: 1.5;
+}
+
+button {
+	font-family: $text-font;
+	border: none;
+	cursor: pointer;
+}
+
+img {
+	-webkit-user-drag: none;
+}
+
+.material-design-icon {
+	display: flex;
+	pointer-events: none;
+}
+
+.flag {
+	width: unset;
+	height: 23px;
+}
+
+.won {
+	color: $won;
+
+	svg {
+		fill: $won;
+	}
+}
+
+.lost {
+	color: $lost;
+
+	svg {
+		fill: $lost;
+	}
+}
+
+.tie {
+	color: $tie;
+
+	svg {
+		fill: $tie;
+	}
+}
+
+
+
+
+
+// Scrollbar
+// --------------------------------------------------
+
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $color-light-1;
+	border-radius: 50px;
+}
+
+
+
+
+
+// Pages
+// --------------------------------------------------
+
+.normal-page {
+	width: 100%;
+	max-width: $site-max-page-width;
+}
+
+.full-page {
+	width: 100%;
+}
+
+
+
+
+
+// Notifications
+// --------------------------------------------------
+$noti-width: 260px;
+$noti-padding: 16px;
+
+#notifications {
+	display: flex;
+	align-items: center;
+	flex-direction: column-reverse;
+	position: absolute;
+	top: calc(#{$header-height} + 10px);
+	left: 0;
+	z-index: 1000;
+	pointer-events: none;
+
+	.notification {
+		width: $noti-width;
+		position: relative;
+		left: -#{$noti-width};
+		color: $text-color-1;
+		text-align: center;
+		background: $color-light-6;
+		border: 1px solid $line-color;
+		border-left: 2px solid $tie;
+		border-radius: $general-radius;
+		padding: 0 $noti-padding;
+		margin-left: 10px;
+		margin-bottom: calc(#{var(--client-height)} * -1);
+		pointer-events: all;
+		cursor: pointer;
+		user-select: none;
+		transition: .5s cubic-bezier(.175,.885,.32,1.275);
+		opacity: 0;
+
+		&.noti-visible {
+			max-height: 100%;
+			padding-top: $noti-padding;
+			padding-bottom: $noti-padding;
+			left: 0;
+			opacity: 1;
+			margin-bottom: 10px;
+		}
+
+		&.noti-error {
+			border-left-color: $lost;
+		}
+
+		&.noti-success {
+			border-left-color: $won;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-lg) {
+		top: calc(#{$header-mobile-height} + 10px);
+	}
+}
+
+
+
+
+
+// Tooltip
+// --------------------------------------------------
+$tooltip-background: $color-dark-3;
+
+.tooltip {
+	display: block !important;
+	z-index: 10000;
+
+	.tooltip-inner {
+		background: $tooltip-background;
+		color: #fff;
+		font-size: $text-size-small;
+		border-radius: $general-radius;
+		padding: 8px 10px;
+	}
+
+	.tooltip-arrow {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		position: absolute;
+		margin: 5px;
+		border-color: $tooltip-background;
+		z-index: 1;
+	}
+
+	&[x-placement^="top"] {
+		margin-bottom: 8px;
+
+		.tooltip-arrow {
+			border-width: 5px 5px 0 5px;
+			border-left-color: transparent !important;
+			border-right-color: transparent !important;
+			border-bottom-color: transparent !important;
+			bottom: -5px;
+			left: calc(50% - 5px);
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&[x-placement^="bottom"] {
+		margin-top: 8px;
+
+		.tooltip-arrow {
+			border-width: 0 5px 5px 5px;
+			border-left-color: transparent !important;
+			border-right-color: transparent !important;
+			border-top-color: transparent !important;
+			top: -5px;
+			left: calc(50% - 5px);
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&[x-placement^="right"] {
+		margin-left: 8px;
+
+		.tooltip-arrow {
+			border-width: 5px 5px 5px 0;
+			border-left-color: transparent !important;
+			border-top-color: transparent !important;
+			border-bottom-color: transparent !important;
+			left: -5px;
+			top: calc(50% - 5px);
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&[x-placement^="left"] {
+		margin-right: 8px;
+
+		.tooltip-arrow {
+			border-width: 5px 0 5px 5px;
+			border-top-color: transparent !important;
+			border-right-color: transparent !important;
+			border-bottom-color: transparent !important;
+			right: -5px;
+			top: calc(50% - 5px);
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&[aria-hidden='true'] {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity $general-transition, visibility $general-transition;
+	}
+
+	&[aria-hidden='false'] {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity $general-transition;
+	}
+}
+
+
+
+
+
+// Popover
+// --------------------------------------------------
+
+.popover-from-top {
+	&-enter-active, &-leave-active {
+		transition: $general-transition;
+	}
+
+	&-enter, &-leave-to {
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+}
+
+.popover-from-bottom {
+	&-enter-active, &-leave-active {
+		transition: $general-transition;
+	}
+
+	&-enter, &-leave-to {
+		opacity: 0;
+		transform: translateY(5px);
+	}
+}
+
+.tooltip.popover {
+	margin-top: 0;
+	box-shadow: 0px 2px 12px 2px $color-dark-2;
+
+	&:focus {
+		outline: none;
+	}
+
+	// Select Popover
+	&.select-popover {
+		margin-left: 1px;
+	}
+
+	// Channels Popover
+	&.channels-popover {
+		margin-left: -10px;
+	}
+
+	// Raffle History Popover
+	@media screen and (max-width: $breakpoint-lg) {
+		&.raffle-history-popover {
+			top: calc(50px + 5px) !important;
+		}
+	}
+
+	// Animation from top
+	&.from-top {
+		&[aria-hidden='true'] {
+			margin-top: -5px;
+			transition: opacity $general-transition, margin $general-transition, visibility $general-transition;
+		}
+
+		&[aria-hidden='false'] {
+			margin-top: 0;
+			transition: opacity $general-transition, margin $general-transition;
+		}
+	}
+
+	// Animation from bottom
+	&.from-bottom {
+		&[aria-hidden='true'] {
+			margin-top: 5px;
+			transition: opacity $general-transition, margin $general-transition, visibility $general-transition;
+		}
+
+		&[aria-hidden='false'] {
+			margin-top: 0;
+			transition: opacity $general-transition, margin $general-transition;
+		}
+	}
+
+	.popover-inner {
+		color: $text-color-2;
+		font-size: $text-size-normal;
+		background: $color-light-6;
+		border-radius: $general-radius;
+		padding: 0;
+	}
+
+	.popover-arrow {
+		display: none;
+	}
+}
+
+
+
+
+
+// Chat Emote
+// --------------------------------------------------
+
+.chat-emote {
+	width: unset;
+	height: 24px;
+	margin: 0 2px;
+	margin-bottom: -4px;
+}
+
+
+
+
+
+// Bonus Pot Odometer
+// --------------------------------------------------
+
+.bonus-pot-odometer {
+	color: $text-color-1;
+	margin-left: 18px;
+
+	.odometer-digit {
+		height: 25px;
+		font-size: 16px;
+		font-weight: 500;
+		margin: 0 2.5px;
+		padding: 0 0.65em;
+		background: linear-gradient(0deg, #494F60 46.67%, #515769 48.33%);
+		box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04);
+		border-radius: $general-radius;
+		line-height: 25px;
+
+		&-inner {
+			left: 0.65em !important;
+		}
+	}
+
+	.odometer-formatting-mark {
+		position: relative;
+		top: 6px;
+	}
+}
+
+
+
+
+
+// NProgress
+// --------------------------------------------------
+$nprogress-color: $primary-light;
+
+#nprogress .bar {
+	background: $nprogress-color;
+}
+
+#nprogress .peg {
+	box-shadow: 0 0 10px $nprogress-color, 0 0 5px $nprogress-color;
+}
+
+#nprogress .spinner-icon {
+	border-top-color: $nprogress-color;
+	border-left-color: $nprogress-color;
+}
+
+
+
+
+
+// 2FA Input
+// --------------------------------------------------
+
+.twofactor-input {
+	width: 100% !important;
+
+	.react-code-input {
+		width: 100% !important;
+		display: flex !important;
+		justify-content: space-between !important;
+
+		> input {
+			width: 100% !important;
+			height: 60px !important;
+			color: $text-color-1 !important;
+			font-family: $text-font !important;
+			background-color: $color-dark-1 !important;
+			border: 2px solid $color-light-5 !important;
+			border-radius: $general-radius !important;
+			transition: $general-transition !important;
+			padding: 0 !important;
+
+			&:focus {
+				border-color: $color-light-1 !important;
+				caret-color: $color-light-1 !important;
+			}
+
+			&:not(:first-child) {
+				margin-left: 5% !important;
+			}
+		}
+	}
+}
+
+
+
+
+
+// Transitions
+// --------------------------------------------------
+
+.fade {
+	&-enter-active, &-leave-active {
+		transition: $general-transition;
+	}
+
+	&-enter, &-leave-to {
+		opacity: 0;
+	}
+}
+
+
+
+
+
+// Animations
+// --------------------------------------------------
+
+.g-fade-in {
+	animation: g-fade-in .1s linear forwards;
+}
+
+@keyframes g-fade-in {
+	from {
+		opacity: 0;
+	}
+}
+
+[lazy=loading] {
+	opacity: 0;
+}
+
+.lazy-from-top[lazy=loading] {
+	opacity: 0;
+	transform: translateY(-12px);
+}
+
+.lazy-from-left[lazy=loading] {
+	opacity: 0;
+	transform: translateX(-12px);
+}
+
+.lazy-from-right[lazy=loading] {
+	opacity: 0;
+	transform: translateX(12px);
+}
+
+.lazy-from-bottom[lazy=loading] {
+	opacity: 0;
+	transform: translateY(12px);
+}
+
+[lazy=loaded] {
+	transition: $general-transition;
+}

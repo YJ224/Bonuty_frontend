@@ -1,0 +1,35 @@
+.bet-buttons {
+	height: 50px;
+	display: flex;
+	flex-shrink: 0;
+	border-radius: $general-radius;
+	overflow: hidden;
+
+	button {
+		min-width: 50px;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 12px;
+		background-color: $color-light-5;
+		color: $text-color-1;
+		transition: $general-transition;
+
+		&:hover {
+			filter: brightness(1.15);
+		}
+
+		@media screen and (max-width: $breakpoint-md) {
+			min-width: 0;
+			width: 100%;
+		}
+	}
+
+	.line {
+		width: 1px;
+		height: 100%;
+		flex-shrink: 0;
+		background-color: $color-light-6;
+	}
+}

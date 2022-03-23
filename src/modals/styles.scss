@@ -1,0 +1,28 @@
+#modals {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	flex-wrap: wrap;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 50;
+	background-color: #262933d6;
+	padding: 3vw;
+	overflow: hidden auto;
+
+	&.modals-enter-active, &.modals-leave-active, &.modals-enter-active .modal, &.modals-leave-active .modal {
+		transition: $site-modals-transition;
+	}
+
+	&.modals-enter, &.modals-leave-to {
+		opacity: 0;
+
+		.modal {
+			transform: scale(0.94);
+		}
+	}
+}

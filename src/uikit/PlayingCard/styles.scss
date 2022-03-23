@@ -1,0 +1,39 @@
+.card {
+	min-width: auto;
+	width: 168px;
+	height: 230px;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	display: flex;
+	position: relative;
+	transform-style: preserve-3d;
+	border-radius: 3px;
+	box-shadow: 0px 2px 8px 0px #0000001a;
+
+	&:not(:first-child) {
+		margin-left: 10px;
+	}
+
+	.front {
+		height: 230px;
+		position: absolute;
+		backface-visibility: hidden;
+		z-index: 1;
+
+		.number {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			color: $text-color-1;
+			font-size: 32px;
+			font-weight: $text-weight-extra-bold;
+		}
+	}
+
+	.back {
+		height: 230px;
+		position: absolute;
+		transform: rotateY(180deg);
+	}
+}

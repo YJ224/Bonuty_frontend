@@ -1,0 +1,560 @@
+// History
+// --------------------------------------------------
+
+.history {
+	width: 100%;
+	display: flex;
+	justify-content: left;
+	position: fixed;
+	top: $header-height;
+	left: 0;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	background: linear-gradient(to bottom, $color-dark-2 -10%, #{$color-dark-2 + '8f'} 75%, #{$color-dark-2 + '00'} 100%);
+	transition: $general-transition;
+	z-index: 40;
+
+	&.chat-open {
+		width: calc(100% - #{$chat-width});
+
+		@media screen and (max-width: $breakpoint-xl) {
+			width: calc(100% - #{$chat-width-xl});
+		}
+
+		@media screen and (max-width: $breakpoint-lg) {
+			width: 100%;
+		}
+	}
+
+	&::after {
+		content: "";
+		height: 50px;
+		width: 400px;
+		position: absolute;
+		right: 0;
+		background: linear-gradient(to right, #{$color-dark-2 + '00'}, $color-dark-2 100%);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	@media screen and (max-width: $breakpoint-md) {
+		top: $header-mobile-height;
+		overflow: auto hidden;
+
+		&::after {
+			width: 100px;
+			position: fixed;
+			background: linear-gradient(to right, #{$color-dark-2 + '00'}, #{$color-dark-2 + 'e8'} 100%);
+		}
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+
+
+
+
+// Loader
+// --------------------------------------------------
+
+.bj-loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+
+
+
+
+// Dealer
+// --------------------------------------------------
+
+.dealer {
+	width: 100%;
+	position: absolute;
+	top: 0;
+
+	/* Background */
+	.bg {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		top: -120px;
+
+		.container {
+			width: 500px;
+			height: 381px;
+			position: relative;
+			text-align: center;
+
+			svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			img {
+				width: 115px;
+				position: relative;
+				top: 185px;
+				filter: invert(84%) sepia(6%) saturate(63%) hue-rotate(178deg) brightness(41%) contrast(74%);
+				opacity: 0.1;
+			}
+		}
+	}
+
+	/* Cards Area */
+	.cards-area {
+		position: relative;
+
+		.cards {
+			top: 25px;
+
+			.card {
+				animation: flipcard-dealer .7s linear 0s 1 forwards;
+
+				@keyframes flipcard-dealer {
+					0% {
+						margin-left: -168px;
+						transform: translate(30vw, -30vh) rotateY(-180deg);
+					}
+					25% {
+						margin-left: 10px;
+						transform: translateY(20px) rotateY(-180deg);
+					}
+					50% {
+						transform: translateY(20px) rotateY(0deg);
+					}
+					75% {
+						transform: translateY(20px);
+					}
+					100% {
+						transform: translateY(0);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// Cards
+// --------------------------------------------------
+
+.cards {
+	width: fit-content;
+	display: flex;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	perspective: 1000px;
+}
+
+
+
+
+
+// Middle
+// --------------------------------------------------
+
+.middle {
+	width: 100%;
+	position: absolute;
+	top: calc(50% - 17px);
+	z-index: 1;
+
+	.placeholder {
+		position: absolute;
+		left: 0;
+		right: 0;
+		text-align: center;
+		color: #474750;
+		font-size: 30px;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+
+	.action-panel {
+		width: 100%;
+		height: 134px;
+		position: absolute;
+
+		.content {
+			width: 100%;
+			height: 134px;
+			position: relative;
+
+			.backline {
+				width: 100%;
+				max-width: 880px;
+				height: 1px;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				right: 0;
+				background: $line-color;
+				margin: 0 auto;
+			}
+
+			.inner {
+				width: 100%;
+				max-width: 640px;
+				height: inherit;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				background: $color-light-6;
+				border-radius: $general-radius;
+				padding: 20px;
+
+				> div {
+					width: 100%;
+				}
+
+				.got {
+					position: absolute;
+					left: 0;
+					right: 0;
+					text-align: center;
+					z-index: 1;
+
+					&-dealer {
+						top: -90px;
+
+						.amount {
+							margin-top: 6px;
+						}
+					}
+
+					&-player {
+						bottom: -90px;
+
+						.amount {
+							margin-bottom: 6px;
+						}
+					}
+
+					.amount {
+						color: $text-color-1;
+						font-size: 34px;
+						font-weight: $text-weight-extra-bold;
+					}
+				}
+
+				.widget {
+					height: inherit;
+					position: relative;
+
+					> div {
+						width: 100%;
+						height: 100%;
+						position: absolute;
+					}
+
+					/* Action Side */
+					.action-side {
+						.at-stake {
+							display: flex;
+							align-items: center;
+							position: absolute;
+							top: -30px;
+							left: -30px;
+
+							.chip:not(:first-child) {
+								margin-left: -15px;
+							}
+						}
+
+						.wrap {
+							width: 100%;
+							height: 100%;
+							position: absolute;
+							top: 0;
+							padding: 20px 0;
+
+							.label {
+								text-align: center;
+								margin-bottom: 24px;
+							}
+
+							.buttons {
+								width: 100%;
+								height: 50px;
+								display: flex;
+								align-items: center;
+								justify-content: space-between;
+
+								button {
+									width: 100%;
+									max-width: 180px;
+
+									&:not(:first-child) {
+										margin-left: 8px;
+									}
+								}
+							}
+
+							.waiting-dealer {
+								width: fit-content;
+								height: fit-content;
+								font-size: $text-size-enormous;
+								text-align: center;
+								position: absolute;
+								top: 0;
+								left: 0;
+								right: 0;
+								bottom: 0;
+								margin: auto;
+							}
+						}
+					}
+
+					/* Result Side */
+					.result-side {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						.result {
+							height: 50px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							color: $text-color-1;
+							font-size: $text-size-enormous;
+							padding: 0 30px;
+							border-radius: $general-radius;
+
+							&.won {
+								background-color: #3adc47;
+							}
+
+							&.lost {
+								background-color: #ff2626;
+							}
+
+							&.tie {
+								background-color: #4b5062;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// Player
+// --------------------------------------------------
+
+.player {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+
+	.cards-area {
+		position: relative;
+
+		.cards {
+			bottom: -80px;
+
+			.card {
+				animation: flipcard-player .7s linear 0s 1 forwards;
+
+				@keyframes flipcard-player {
+					0% {
+						margin-left: -168px;
+						transform: translate(30vw, -30vh) rotateY(-180deg);
+					}
+					25% {
+						margin-left: 10px;
+						transform: translateY(-20px) rotateY(-180deg);
+					}
+					50% {
+							transform: translateY(-20px) rotateY(0deg);
+					}
+					75% {
+						transform: translateY(-20px);
+					}
+					100% {
+						transform: translateY(0);
+					}
+				}
+			}
+		}
+	}
+
+	> button {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 20px;
+		margin: 0 auto;
+		padding: 0 44px;
+	}
+}
+
+
+
+
+
+// Bet Panel
+// --------------------------------------------------
+
+.bet-panel {
+	width: 100%;
+	max-width: 875px;
+	height: 210px;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+
+	.panel {
+		width: 100%;
+		height: 130px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: $color-light-6;
+		border-radius: $general-radius;
+		padding: 20px;
+
+		> div {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.left {
+			padding-right: 20px;
+			border-right: 1px solid $color-light-2;
+
+			.chip {
+				cursor: pointer;
+				transition: all .175s;
+
+				&:hover {
+					transform: translateY(-3px);
+					filter: drop-shadow(0 3px 3px rgba(0,0,0,0.25));
+				}
+
+				&:active {
+					transform: none;
+					filter: none;
+				}
+			}
+		}
+
+		.right {
+			padding-left: 20px;
+		}
+
+		.label {
+			text-align: center;
+		}
+
+		.content {
+			width: 100%;
+			height: 50px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	.lower {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.at-stake {
+			display: flex;
+			align-items: center;
+
+			.chips {
+				display: flex;
+				align-items: center;
+				margin: 0 24px;
+
+				.chip {
+					&:first-child {
+						animation: new-chip $general-transition 0s 1 forwards;
+
+						@keyframes new-chip {
+							0% {
+								opacity: 0;
+							}
+							100% {
+								opacity: 1;
+							}
+						}
+					}
+
+					&:not(:first-child) {
+						margin-left: -15px;
+						animation: add-chip $general-transition 0s 1 forwards;
+
+						@keyframes add-chip {
+							0% {
+								opacity: 0;
+								transform: translateX(10px);
+							}
+							100% {
+								opacity: 1;
+								transform: translateX(0);
+							}
+						}
+					}
+				}
+			}
+
+			.bet-buttons {
+				height: 50px;
+			}
+		}
+	}
+}
+
+
+
+
+
+// Fade Transition
+// --------------------------------------------------
+
+.fade-enter-active, .fade-leave-active {
+	transition: $general-transition;
+}
+
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+	transform: translateY(8px);
+}
